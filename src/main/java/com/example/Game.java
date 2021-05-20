@@ -25,9 +25,11 @@ public class Game {
         twoReturnInt twoInt = new twoReturnInt();
         twoInt.e =enemyHP;
         twoInt.p = playerHP;
+        System.out.println(twoInt.e);
 
         while(true) {
             enemyHP = playerTurn(enemyHP, player);
+            //twoInt = playerTurn(twoInt, player);
             playerHP = enemyTurn(playerHP, enemyDamagePower);
             System.out.println("プレイヤー残りHP" + playerHP);
             System.out.println("エネミー残りHP" + enemyHP);
@@ -43,6 +45,7 @@ public class Game {
     }
 
     public static int playerTurn(int enemyHP, Player player){
+    //public static int playerTurn(twoReturnInt twoInt, Player player){
         Scanner scan = new Scanner(System.in);
         System.out.println("----------------------------------------------------------------------");
         System.out.println("プレイヤーのターン！");
@@ -61,12 +64,17 @@ public class Game {
         System.out.println("プレイヤーの攻撃！");
         System.out.println(skillDamage + "のダメージ");
         enemyHP -= skillDamage;
+        //twoInt.e -= skillDamage;
         System.out.println("----------------------------------------------------------------------");
         if(enemyHP >= 0) {
             return enemyHP;
         }else{
             return 0;
         }
+        /*if(twoInt.e >= 0) {
+            twoInt.e = 0;
+        }
+        return twoInt; */
     }
     public static int enemyTurn(int playerHP, int enemyAttack){
         System.out.println("----------------------------------------------------------------------");
