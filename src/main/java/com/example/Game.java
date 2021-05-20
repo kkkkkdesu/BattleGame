@@ -13,10 +13,18 @@ public class Game {
         this.player = player;
     }
 
+    class twoReturnInt{
+        public int e;
+        public int p;
+    }
+
     public void start(){
         int enemyHP = 100;
         int enemyDamagePower = 30;
         int playerHP = player.getPlayerHP();
+        twoReturnInt twoInt = new twoReturnInt();
+        twoInt.e =enemyHP;
+        twoInt.p = playerHP;
 
         while(true) {
             enemyHP = playerTurn(enemyHP, player);
@@ -38,13 +46,17 @@ public class Game {
         Scanner scan = new Scanner(System.in);
         System.out.println("----------------------------------------------------------------------");
         System.out.println("プレイヤーのターン！");
-        System.out.println("(1.Skill1 : " + player.attack1() +  ") or (2.Skill2 : " + player.attack2() + ")");
+        System.out.println("(1.Skill1 : " + player.attack1() +  ") or (2.Skill2 : " + player.attack2() + ")"
+                + " or (3.Heal : 50)");
         int choiceSkill = scan.nextInt();
         int skillDamage = 0;
+        Boolean battleOrNot = true;
         if(choiceSkill == 1) {
             skillDamage = player.attack1();
-        }else{
+        }else if(choiceSkill == 2){
             skillDamage = player.attack2();
+        }else{
+            System.out.println("hello");
         }
         System.out.println("プレイヤーの攻撃！");
         System.out.println(skillDamage + "のダメージ");
