@@ -3,13 +3,17 @@ package com.example;
 public class Game {
 
     //private final Enemy enemy;
-    //private final Player player;
+    private final Player player;
     //private final
 
 
-    public Game (){ // Enemy enemy, Player player){
+    public Game (Player player){
         //this.enemy = enemy;
-        //this.player = player;
-        System.out.println("Game class here");
+        this.player = player;
+    }
+
+    public void start(){
+        System.out.println("Game start!!");
+
     }
 }
