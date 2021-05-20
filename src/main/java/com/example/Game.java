@@ -1,5 +1,7 @@
 package com.example;
 
+import java.util.Scanner;
+
 public class Game {
 
     //private final Enemy enemy;
@@ -15,10 +17,9 @@ public class Game {
         int enemyHP = 100;
         int enemyDamagePower = 30;
         int playerHP = player.getPlayerHP();
-        int playerDamagePower = player.attack();
 
         while(true) {
-            enemyHP = playerTurn(enemyHP, playerDamagePower);
+            enemyHP = playerTurn(enemyHP, player);
             playerHP = enemyTurn(playerHP, enemyDamagePower);
             System.out.println("プレイヤー残りHP" + playerHP);
             System.out.println("エネミー残りHP" + enemyHP);
@@ -33,12 +34,21 @@ public class Game {
 
     }
 
-    public static int playerTurn(int enemyHP, int playerAttack){
+    public static int playerTurn(int enemyHP, Player player){
+        Scanner scan = new Scanner(System.in);
         System.out.println("----------------------------------------------------------------------");
         System.out.println("プレイヤーのターン！");
+        System.out.println("(1.Skill1 : " + player.attack1() +  ") or (2.Skill2 : " + player.attack2() + ")");
+        int choiceSkill = scan.nextInt();
+        int skillDamage = 0;
+        if(choiceSkill == 1) {
+            skillDamage = player.attack1();
+        }else{
+            skillDamage = player.attack2();
+        }
         System.out.println("プレイヤーの攻撃！");
-        System.out.println(playerAttack + "のダメージ");
-        enemyHP -= playerAttack;
+        System.out.println(skillDamage + "のダメージ");
+        enemyHP -= skillDamage;
         System.out.println("----------------------------------------------------------------------");
         if(enemyHP >= 0) {
             return enemyHP;

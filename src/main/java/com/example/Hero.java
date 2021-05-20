@@ -14,17 +14,19 @@ public enum Hero {
         this.skill2 = skill2;
     }*/
 
-    BOB(1,100, 20),
-    JOHN(2,100, 20),
-    TOM(3,200, 40);
+    BOB(1,50, 10,20),
+    JOHN(2,100, 20,40),
+    TOM(3,200, 40,80);
     private final int heroID;
     private final int hp;
-    private final int damagepower;
+    private final int damagepower1;
+    private final int damagepower2;
 
-    Hero(int heroID,int hp, int damagepower){
+    Hero(int heroID,int hp, int damagepower1, int damagepower2){
         this.heroID = heroID;
         this.hp = hp;
-        this.damagepower = damagepower;
+        this.damagepower1 = damagepower1;
+        this.damagepower2 = damagepower2;
     }
 
     public int getHeroID(){
@@ -33,8 +35,11 @@ public enum Hero {
     public int getHp(){
         return hp;
     }
-    public int getDamagepower(){
-        return damagepower;
+    public int getDamagepower1(){
+        return damagepower1;
+    }
+    public int getDamagepower2(){
+        return damagepower2;
     }
 
     /**
