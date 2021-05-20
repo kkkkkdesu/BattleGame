@@ -14,11 +14,24 @@ public class Player {
         int heroid = scanner.nextInt();
         Hero hero = Hero.getByNumber(heroid);
         System.out.println("キャラクターは"+ hero +"です");
-        System.out.println(hero.getHp());
-        System.out.println(hero.getDamagepower());
+        System.out.println("HP：" + hero.getHp());
+        System.out.println("Power：" + hero.getDamagepower());
 
         this.playerHP = hero.getHp();
         this.skillDamagePower = hero.getDamagepower();
     }
+
+    public int attack(){
+        return skillDamagePower;
+    }
+
+    public int getPlayerHP(){
+        return playerHP;
+    }
+
+    public int checkRemainHP(int remainHP, int damage){
+        return remainHP - damage;
+    }
+
 
 }
